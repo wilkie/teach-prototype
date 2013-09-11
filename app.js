@@ -5,7 +5,7 @@ var editBox = CodeMirror.fromTextArea(textArea, {
 });
 
 function updateFrame(src) {
-  var iframe = document.getElementById("moo");
+  var iframe = document.getElementById("preview");
   iframe.src = "data:text/html;charset=utf-8," + escape(src);
 }
 
