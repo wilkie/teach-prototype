@@ -4,10 +4,13 @@ var editBox = CodeMirror.fromTextArea(textArea, {
   mode:        "text/html"
 });
 
-var iframe = document.getElementById("moo");
-iframe.src = "data:text/html;charset=utf-8," + escape(editBox.getValue());
+function updateFrame(src) {
+  var iframe = document.getElementById("moo");
+  iframe.src = "data:text/html;charset=utf-8," + escape(src);
+}
+
+updateFrame(editBox.getValue());
 
 editBox.on("change", function(instance, object) {
-  var iframe = document.getElementById("moo");
-  iframe.src = "data:text/html;charset=utf-8," + escape(instance.getValue());
+  updateFrame(instance.getValue());
 });
